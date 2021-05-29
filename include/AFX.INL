@@ -218,17 +218,17 @@ _AFX_INLINE CTimeSpan::CTimeSpan(const CTimeSpan& timeSpanSrc)
 _AFX_INLINE const CTimeSpan& CTimeSpan::operator=(const CTimeSpan& timeSpanSrc)
 	{ m_timeSpan = timeSpanSrc.m_timeSpan; return *this; }
 _AFX_INLINE LONG CTimeSpan::GetDays() const
-	{ return m_timeSpan / (24*3600L); }
+	{ return static_cast<LONG>(m_timeSpan / (24*3600L)); }
 _AFX_INLINE LONG CTimeSpan::GetTotalHours() const
-	{ return m_timeSpan/3600; }
+	{ return static_cast<LONG>(m_timeSpan/3600); }
 _AFX_INLINE int CTimeSpan::GetHours() const
 	{ return (int)(GetTotalHours() - GetDays()*24); }
 _AFX_INLINE LONG CTimeSpan::GetTotalMinutes() const
-	{ return m_timeSpan/60; }
+	{ return static_cast<LONG>(m_timeSpan/60); }
 _AFX_INLINE int CTimeSpan::GetMinutes() const
 	{ return (int)(GetTotalMinutes() - GetTotalHours()*60); }
 _AFX_INLINE LONG CTimeSpan::GetTotalSeconds() const
-	{ return m_timeSpan; }
+	{ return static_cast<LONG>(m_timeSpan); }
 _AFX_INLINE int CTimeSpan::GetSeconds() const
 	{ return (int)(GetTotalSeconds() - GetTotalMinutes()*60); }
 _AFX_INLINE CTimeSpan CTimeSpan::operator-(CTimeSpan timeSpan) const

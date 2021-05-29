@@ -37,7 +37,7 @@
 		#ifdef _DEBUG
 			#pragma comment(lib, "nafxcwd.lib")
 		#else
-			#pragma comment(lib, "nafxcw.lib")
+			//#pragma comment(lib, "nafxcw.lib")
 		#endif
 	#else
 		#ifdef _DEBUG
@@ -189,7 +189,7 @@
 #endif //_MAC
 
 // force inclusion of NOLIB.OBJ for /disallowlib directives
-#pragma comment(linker, "/include:__afxForceEXCLUDE")
+//#pragma comment(linker, "/include:__afxForceEXCLUDE")
 
 // force inclusion of DLLMODUL.OBJ for _USRDLL
 #ifdef _USRDLL
