@@ -21,7 +21,7 @@ _AFX_INLINE void CObject::Serialize(CArchive&)
 	{ /* CObject does not serialize anything by default */ }
 _AFX_INLINE void* PASCAL CObject::operator new(size_t, void* p)
 	{ return p; }
-#ifndef _DEBUG
+#ifdef _DEBUG
 // _DEBUG versions in memory.cpp
 _AFX_INLINE void PASCAL CObject::operator delete(void* p)
 	{ ::operator delete(p); }

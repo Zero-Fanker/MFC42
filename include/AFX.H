@@ -672,8 +672,10 @@ public:
 	virtual void Serialize(CArchive& ar);
 
 	// Diagnostic Support
+#if defined(_DEBUG)
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
+#endif
 
 // Implementation
 public:
