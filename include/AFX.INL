@@ -212,13 +212,13 @@ _AFX_INLINE CTimeSpan::CTimeSpan()
 _AFX_INLINE CTimeSpan::CTimeSpan(time_t time)
 	{ m_timeSpan = time; }
 _AFX_INLINE CTimeSpan::CTimeSpan(LONG lDays, int nHours, int nMins, int nSecs)
-	{ m_timeSpan = nSecs + 60* (nMins + 60* (nHours + 24* lDays)); }
+	{ m_timeSpan = nSecs + 60 * (nMins + 60 * (nHours + static_cast<time_t>(24) * lDays)); }
 _AFX_INLINE CTimeSpan::CTimeSpan(const CTimeSpan& timeSpanSrc)
 	{ m_timeSpan = timeSpanSrc.m_timeSpan; }
 _AFX_INLINE const CTimeSpan& CTimeSpan::operator=(const CTimeSpan& timeSpanSrc)
 	{ m_timeSpan = timeSpanSrc.m_timeSpan; return *this; }
 _AFX_INLINE LONG CTimeSpan::GetDays() const
-	{ return m_timeSpan / (24*3600L); }
+	{ return m_timeSpan / 86400; }
 _AFX_INLINE LONG CTimeSpan::GetTotalHours() const
 	{ return m_timeSpan/3600; }
 _AFX_INLINE int CTimeSpan::GetHours() const
